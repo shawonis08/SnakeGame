@@ -7,4 +7,5 @@ import time
 # random for different coordinate
 import random
 
-pygame.init()
+# check pygame initalize return value
+print(pygame.init())
