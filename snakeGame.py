@@ -22,11 +22,11 @@ else:
 
 # Game Screen
 # changing window name
-p.display.set_caption("Snake Game")
+
 # gamescreen width,height initialize but function accept one parameter
 gamescreen = p.display.set_mode((720, 460))
+p.display.set_caption("Snake Game")
 # hold the gamescreen
-time.sleep(2)
 
 # set Color for Game
 red = p.Color(255,0,0) #gameover
@@ -36,15 +36,28 @@ white = p.Color(255,255,255) #screen
 yellow = p.Color(255,255,224) #food
 
 # FPS controller
-fpscontroller = p.time.clock()
+fps = p.time.Clock()
 
 # Game variable
 snakepostiton = [100,50]
 snakebody = [[100,50],[90,50],[80,50]]
 
 #food variable & random position
-foodposition = [random.randrange(1,72)*10,random.randrange(1,46)*10]
+foodposition = [random.randrange(1,72)*10, random.randrange(1,46)*10]
 foodpopup = True
 
 move = 'RIGHT'
 chagemove = move
+
+# Game over
+
+def gameover():
+    overtext = p.font.SysFont('monaco', 72)
+    overtextdisplay = overtext.render('Game Over', True, red)
+    overtextrectangle = overtextdisplay.get_rect()
+    overtextrectangle.midtop = (360,15)
+    gamescreen.blit(overtextdisplay,overtextrectangle)
+    p.display.flip()
+    time.sleep(50)
+    p.quit()
+
