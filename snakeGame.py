@@ -27,3 +27,24 @@ p.display.set_caption("Snake Game")
 gamescreen = p.display.set_mode((720, 460))
 # hold the gamescreen
 time.sleep(2)
+
+# set Color for Game
+red = p.Color(255,0,0) #gameover
+green = p.Color(0,255,0) #snake
+blue = p.Color(0,0,255) #score
+white = p.Color(255,255,255) #screen
+yellow = p.Color(255,255,224) #food
+
+# FPS controller
+fpscontroller = p.time.clock()
+
+# Game variable
+snakepostiton = [100,50]
+snakebody = [[100,50],[90,50],[80,50]]
+
+#food variable & random position
+foodposition = [random.randrange(1,72)*10,random.randrange(1,46)*10]
+foodpopup = True
+
+move = 'RIGHT'
+chagemove = move
